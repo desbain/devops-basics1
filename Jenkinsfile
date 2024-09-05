@@ -6,21 +6,21 @@
             agent none
             stages{
                 stage('Checkout'){
-                    agent any
+                   
                     steps{
                 echo 'cloning...'
                         git 'https://github.com/desbain/devops-basics.git'
                     }
                 }
                 stage('Compile'){
-                    agent {label 'Master'}
+                   
                     steps{
                         echo 'compiling...'
                         sh 'mvn compile'
                 }
                 }
                 stage('CodeReview'){
-                    agent {label 'Master'}
+                   
                     steps{
                     
                 echo 'codeReview...'
@@ -28,7 +28,7 @@
                     }
                 }
                 stage('UnitTest'){
-                    agent {label 'Master'}
+                    
                     steps{
                     echo 'Testing'
                         sh 'mvn test'
@@ -40,7 +40,7 @@
                 }	
                 }
                 stage('Package'){
-                    agent any
+                   
                     steps{
                         sh 'mvn package'
                     }
